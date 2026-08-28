@@ -1,0 +1,6 @@
+{
+  "name": "Alpha VPN",
+  "description": "High-performance, sleek, and secure Android VPN application with modern WireGuard and OpenVPN protocols, real-time traffic telemetry, and global server routing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
