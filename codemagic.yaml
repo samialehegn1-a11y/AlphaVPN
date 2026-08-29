@@ -3,14 +3,14 @@ workflows:
     name: Build Android APK
     instance_type: mac_mini_m1
     environment:
-      java: 17
+      java: 11
     scripts:
-      - name: Force Gradle 8.5 Wrapper
+      - name: Force Gradle Wrapper
         script: |
           gradle wrapper --gradle-version 8.5 --distribution-type bin
           chmod +x gradlew
       - name: Build Android APK
         script: |
-          ./gradlew assembleDebug --stacktrace
+          ./gradlew assembleDebug -Xmx2048m -Dorg.gradle.jvmargs="-Xmx2048m -XX:MaxMetaspaceSize=512m" --warning-mode none
     artifacts:
       - app/build/outputs/**/*.apk
