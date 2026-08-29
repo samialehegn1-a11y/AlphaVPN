@@ -3,11 +3,11 @@ workflows:
     name: Build Android APK
     instance_type: mac_mini_m1
     environment:
-      java: 17
+      java: 21
     scripts:
-      - name: Force Gradle Wrapper
+      - name: Force Gradle 9.3.1 Wrapper
         script: |
-          gradle wrapper --gradle-version 8.7 --distribution-type bin
+          gradle wrapper --gradle-version 9.3.1 --distribution-type bin
           chmod +x gradlew
       - name: Build Android APK
         script: |
