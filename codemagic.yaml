@@ -5,11 +5,12 @@ workflows:
     environment:
       java: 17
     scripts:
-      - name: Set Gradle Version
+      - name: Force Gradle 8.5 Wrapper
         script: |
-          gradle wrapper --gradle-version 8.5
+          gradle wrapper --gradle-version 8.5 --distribution-type bin
+          chmod +x gradlew
       - name: Build Android APK
         script: |
-          ./gradlew assembleDebug
+          ./gradlew assembleDebug --stacktrace
     artifacts:
       - app/build/outputs/**/*.apk
