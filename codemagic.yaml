@@ -11,6 +11,6 @@ workflows:
           chmod +x gradlew
       - name: Build Android APK
         script: |
-          ./gradlew assembleDebug --no-daemon
+          ./gradlew assembleDebug -Pandroid.injected.signing.store.file=""
     artifacts:
       - app/build/outputs/**/*.apk
