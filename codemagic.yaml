@@ -9,8 +9,11 @@ workflows:
         script: |
           gradle wrapper --gradle-version 9.3.1 --distribution-type bin
           chmod +x gradlew
+      - name: Create Debug Keystore
+        script: |
+          keytool -genkey -v -keystore /Users/builder/clone/debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
       - name: Build Android APK
         script: |
-          ./gradlew assembleDebug -Pandroid.injected.signing.store.file=""
+          ./gradlew assembleDebug
     artifacts:
       - app/build/outputs/**/*.apk
